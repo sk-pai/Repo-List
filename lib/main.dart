@@ -65,7 +65,8 @@ class All {
 Future<All> fetchRepos() async {
   
   
-  final response1 = await http.get(Uri.parse('https://api.github.com/users/freeCodeCamp/repos'));
+  final response1 =
+      await http.get(Uri.parse('https://api.github.com/users/freeCodeCamp/repos'));
   
   if (response1.statusCode == 200) {
     //print(response.body);
@@ -77,9 +78,9 @@ Future<All> fetchRepos() async {
 
 
 
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
 
   final String title;
 
@@ -95,6 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     futureRepo=fetchRepos();
+    
   }
 
   @override
@@ -128,20 +130,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 return ListView(
                   children: repos.map((r) => Card(
                     child: Container(
-                      height: 60,
+                      
                       color: Colors.blue[100],
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(r.name ?? '',
-                          style: const TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold,height: 1.0),
+                          style: const TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),
                           ),
-                          Text(r.description ?? '',
-                          style: const TextStyle(fontSize: 13.0,height: 1.0),
+                          Text(r.description ?? '', 
+                          style: const TextStyle(fontSize: 13.0),
                           ),
                           Text(r.htmlUrl ?? '',
-                          style: const TextStyle(fontSize: 12.0,fontStyle: FontStyle.italic,height: 1.0)
+                          style: const TextStyle(fontSize: 12.0,fontStyle: FontStyle.italic,fontWeight: FontWeight.w400)
                           ),
                           //Text(r.stargazersCount.toString())
                         ],
